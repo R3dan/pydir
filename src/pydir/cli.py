@@ -4,7 +4,7 @@ import sys
 import os
 from utils import *
 
-from __init__ import __version__
+from . import __version__
 from .tree import DirectoryTree
 
 
