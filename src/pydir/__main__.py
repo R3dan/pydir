@@ -1,4 +1,4 @@
-from tree import DirectoryTree
+from scr.pydir.tree import DirectoryTree
 from cli import main
 
 if __name__ == "__main__":
