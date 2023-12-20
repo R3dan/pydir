@@ -1,6 +1,6 @@
 import os
 import pathlib
-from utils import *
+from utils import debug
 
 PIPE = "│"
 ELBOW = "└──"
@@ -24,15 +24,21 @@ class _TreeGenerator:
         self._tree = []
 
     def build_tree(self):
-        debug(f"""====== DEBUG =======
+        debug(
+            f"""====== DEBUG =======
               build_tree
-                TREE = {self._tree}""")
+                TREE = {self._tree}"""
+        )
         self._tree_head()
-        debug(f"""_tree_head
-                TREE = {self._tree}""")
+        debug(
+            f"""_tree_head
+                TREE = {self._tree}"""
+        )
         self._tree_body(self._root_dir)
-        debug(f"""_tree_body
-                TREE = {self._tree}""")
+        debug(
+            f"""_tree_body
+                TREE = {self._tree}"""
+        )
         return self._tree
 
     def _tree_head(self):
@@ -42,12 +48,22 @@ class _TreeGenerator:
     def _tree_body(self, directory, prefix=""):
         entries = self._prepare_entries(directory)
         entries_count = len(entries)
+        debug(f"""======== _tree_body ==========
+              entries = {entries}
+              entries_count = {entries_count}""")
         for index, entry in enumerate(entries):
             connector = ELBOW if index == entries_count - 1 else TEE
+            debug(f"""   for {enumerate(entries)}
+                    index = {index}
+                    entry = {entry}
+                    conector = {connector}""")
             if entry.is_dir():
                 self._add_directory(entry, index, entries_count, prefix, connector)
+                debug("IS DIR")
             else:
                 self._add_file(entry, prefix, connector)
+                debug("IS FILE")
+
 
     def _prepare_entries(self, directory):
         entries = directory.iterdir()

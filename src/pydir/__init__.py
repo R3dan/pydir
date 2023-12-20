@@ -1,8 +1,4 @@
 from tree import DirectoryTree
-from cli import main
 
-if __file__ == "__main__":
-    main()
-
-
-__version__ = "0.1.0"
+__version__ = "0.1.1"
+__doc__ = "https://github.com/R3dan/pydir"

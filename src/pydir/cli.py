@@ -3,9 +3,10 @@ import pathlib
 import sys
 import os
 from utils import *
+import time
 
-from __init__ import __version__
-from .tree import DirectoryTree
+from __init__ import *
+from tree import DirectoryTree
 
 
 def main():
@@ -19,3 +20,4 @@ def main():
     debug(f"TREE = {tree}")
     for entry in tree:
         print(entry)
+        time.sleep(2)
