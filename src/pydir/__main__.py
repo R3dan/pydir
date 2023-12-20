@@ -1,5 +1,5 @@
 from tree import DirectoryTree
-from cli import main
+import cli
 
-if __file__ == "__main__":
-    main()
+if __name__ == "__main__":
+    cli.main()
